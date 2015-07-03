@@ -14,4 +14,8 @@ RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
               -repository http://download.eclipse.org/releases/mars \
               -installIUs org.eclipse.m2e.feature.feature.group
 
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars,http://downloads.sonarsource.com/eclipse/eclipse/ \
+              -installIUs org.sonar.ide.eclipse.jdt.feature.feature.group
+
 CMD ["cp","-R","/eclipse","/eclipse-provisioned"]
