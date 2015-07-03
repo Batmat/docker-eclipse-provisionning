@@ -1,0 +1,13 @@
+= Docker image to generate a customized Eclipse installation
+
+To use it :
+
+    $ docker build -t eclipse-custom .
+    $ docker run -v `pwd`/custom-eclipse:/eclipse-provisioned eclipse
+
+That will create a directory called `custom-eclipse` in which you'll find the `eclipse` directory corresponding
+to your customized Eclipse.
+
+Then, as Docker runs as root, to use it without any issue, you should `chown` that directory to your current user:
+
+    $ sudo chown -R $( id -un ):$( id -gn ) custom-eclipse
